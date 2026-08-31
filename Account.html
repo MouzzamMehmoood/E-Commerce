@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://googleapis.com');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+  </head>
+  <body class="bg-white text-black min-h-screen flex flex-col justify-center items-center px-4">
+    <div
+      class="w-full max-w-sm bg-white p-8 rounded-xl shadow-[0_4px_25px_rgba(0,0,0,0.05)] border border-gray-100"
+    >
+      <!-- Header Text -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-semibold tracking-wide text-black mb-2">
+          Log in to Exclusive
+        </h1>
+        <p class="text-sm text-gray-500">Enter your details below</p>
+      </div>
+
+      <!-- Login Form Details -->
+      <form class="space-y-5">
+        <!-- Email or Phone Field -->
+        <div>
+          <label
+            class="block text-xs text-gray-400 font-medium mb-1.5 uppercase tracking-wider"
+            >Email or Phone Number</label
+          >
+          <input
+            type="text"
+            placeholder="Enter your Email or Number"
+            required
+            class="w-full bg-[#f5f5f5] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 transition placeholder-gray-400"
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <label
+              class="block text-xs text-gray-400 font-medium uppercase tracking-wider"
+              >Password</label
+            >
+            <a
+              href="#"
+              class="text-xs text-[#db4444] hover:underline transition"
+              >Forgot Password?</a
+            >
+          </div>
+          <input
+            type="password"
+            placeholder="••••••••"
+            required
+            class="w-full bg-[#f5f5f5] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 transition placeholder-gray-400"
+          />
+        </div>
+
+        <!-- Submit Buttons Stack -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            class="w-full bg-[#db4444] text-white font-medium text-sm py-3.5 rounded hover:bg-[#c23b3b] transition duration-200 shadow-sm"
+          >
+            Log In
+          </button>
+        </div>
+      </form>
+
+      <!-- Secondary Navigation/Alternative Flow Shortcuts -->
+      <div
+        class="text-center mt-8 pt-5 border-t border-gray-100 text-sm text-gray-500"
+      >
+        Don't have an account?
+        <a href="#" class="text-black font-semibold hover:underline ml-1"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

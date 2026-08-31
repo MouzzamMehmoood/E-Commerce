@@ -1,0 +1,1161 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Exclusive - Cart</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              exclusiveRed: "#DB4444",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #db4444;
+        border-radius: 4px;
+      }
+
+      #mobileMenu {
+        transition:
+          max-height 0.3s ease,
+          opacity 0.3s ease;
+      }
+
+      .cart-product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-black font-sans antialiased">
+    <!-- =========================
+     SUMMER SALE BAR
+========================== -->
+
+    <div class="bg-black text-white">
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-center text-xs sm:text-sm"
+      >
+        <h3>
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        </h3>
+
+        <a href="index.html" class="underline whitespace-nowrap"> Shop now </a>
+      </div>
+    </div>
+
+    <!-- =========================
+     HEADER
+========================== -->
+
+    <header class="border-b border-gray-200 bg-white">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[80px] flex items-center justify-between gap-4"
+      >
+        <!-- Logo -->
+
+        <a
+          href="index.html"
+          class="text-2xl sm:text-3xl font-bold whitespace-nowrap"
+        >
+          Exclusive
+        </a>
+
+        <!-- Desktop Navigation -->
+
+        <nav class="hidden lg:flex items-center gap-8 xl:gap-12 font-medium">
+          <a href="index.html" class="hover:underline transition"> Home </a>
+
+          <a href="contact.html" class="hover:underline transition">
+            Contact
+          </a>
+
+          <a href="about.html" class="hover:underline transition"> About us </a>
+
+          <a href="signUp.html" class="hover:underline transition"> Sign in </a>
+        </nav>
+
+        <!-- Desktop Search + Icons -->
+
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Search -->
+
+          <div class="relative">
+            <input
+              id="desktopSearch"
+              type="text"
+              placeholder="Search"
+              class="w-40 lg:w-52 xl:w-60 h-10 px-4 pr-10 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-gray-300"
+            />
+
+            <i
+              class="material-icons absolute right-3 top-2.5 cursor-pointer text-gray-700"
+            >
+              search
+            </i>
+          </div>
+
+          <!-- Wishlist -->
+
+          <div class="relative">
+            <a href="Wishlist.html">
+              <i class="material-icons text-red-600 cursor-pointer">
+                favorite
+              </i>
+            </a>
+
+            <span
+              id="wishlistCount"
+              class="absolute -top-2 -right-3 bg-[#db4444] text-white text-xs min-w-5 h-5 px-1 flex items-center justify-center rounded-full"
+            >
+              0
+            </span>
+          </div>
+
+          <!-- Cart -->
+
+          <div class="relative">
+            <a href="MYCART.html">
+              <i class="material-icons text-blue-600 cursor-pointer">
+                shopping_cart
+              </i>
+            </a>
+
+            <span
+              id="cartCount"
+              class="absolute -top-2 -right-3 bg-[#db4444] text-white text-xs min-w-5 h-5 px-1 flex items-center justify-center rounded-full"
+            >
+              0
+            </span>
+          </div>
+
+          <!-- Account -->
+
+          <a href="Account.html">
+            <i class="material-icons text-gray-950 cursor-pointer">
+              account_circle
+            </i>
+          </a>
+        </div>
+
+        <!-- Mobile Icons -->
+
+        <div class="flex md:hidden items-center gap-4">
+          <div class="relative">
+            <a href="Wishlist.html">
+              <i class="material-icons text-red-600"> favorite </i>
+            </a>
+
+            <span
+              id="mobileWishlistCount"
+              class="absolute -top-2 -right-3 bg-[#db4444] text-white text-xs min-w-4 h-4 px-1 flex items-center justify-center rounded-full"
+            >
+              0
+            </span>
+          </div>
+
+          <div class="relative">
+            <a href="MYCART.html">
+              <i class="material-icons text-blue-600"> shopping_cart </i>
+            </a>
+
+            <span
+              id="mobileCartCount"
+              class="absolute -top-2 -right-3 bg-[#db4444] text-white text-xs min-w-4 h-4 px-1 flex items-center justify-center rounded-full"
+            >
+              0
+            </span>
+          </div>
+
+          <button
+            id="menuButton"
+            type="button"
+            class="flex items-center justify-center"
+          >
+            <i class="material-icons text-2xl"> menu </i>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU -->
+
+      <div
+        id="mobileMenu"
+        class="lg:hidden max-h-0 opacity-0 overflow-hidden border-t border-gray-200"
+      >
+        <div class="px-4 py-5 space-y-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full h-11 px-4 pr-12 bg-gray-100 rounded-lg text-sm focus:outline-none"
+            />
+
+            <i class="material-icons absolute right-4 top-3 text-gray-700">
+              search
+            </i>
+          </div>
+
+          <nav class="flex flex-col gap-4 font-medium">
+            <a href="index.html" class="hover:text-[#db4444]"> Home </a>
+
+            <a href="contact.html" class="hover:text-[#db4444]"> Contact </a>
+
+            <a href="about.html" class="hover:text-[#db4444]"> About us </a>
+
+            <a href="signUp.html" class="hover:text-[#db4444]"> Sign in </a>
+
+            <a href="Account.html" class="hover:text-[#db4444]"> My Account </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+     MAIN CONTENT
+========================== -->
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
+      <!-- Breadcrumb -->
+
+      <nav class="text-sm text-gray-500 mb-8 sm:mb-10">
+        <a href="index.html" class="hover:text-black transition-colors">
+          Home
+        </a>
+
+        <span class="mx-2">/</span>
+
+        <span class="text-black font-medium"> Cart </span>
+      </nav>
+
+      <!-- =========================
+       CART TABLE
+  ========================== -->
+
+      <div class="w-full mb-6 overflow-x-auto">
+        <table class="w-full min-w-[700px] border-collapse">
+          <thead>
+            <tr class="bg-white shadow-sm border border-gray-100 text-left">
+              <th class="p-4 sm:p-6 font-medium text-sm sm:text-base">
+                Product
+              </th>
+
+              <th class="p-4 sm:p-6 font-medium text-sm sm:text-base">Price</th>
+
+              <th class="p-4 sm:p-6 font-medium text-sm sm:text-base">
+                Quantity
+              </th>
+
+              <th class="p-4 sm:p-6 font-medium text-sm sm:text-base">
+                Subtotal
+              </th>
+
+              <th class="p-4 sm:p-6 font-medium text-sm sm:text-base">
+                Action
+              </th>
+            </tr>
+          </thead>
+
+          <tbody id="cartTableBody">
+            <!-- Products will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- =========================
+       CART ACTION BUTTONS
+  ========================== -->
+
+      <div
+        class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 mb-12 sm:mb-16"
+      >
+        <a
+          href="index.html"
+          class="border border-black rounded px-8 py-4 font-medium text-base hover:bg-gray-50 transition-colors text-center"
+        >
+          Return To Shop
+        </a>
+
+        <button
+          id="updateCartButton"
+          type="button"
+          class="border border-black rounded px-8 py-4 font-medium text-base hover:bg-gray-50 transition-colors"
+        >
+          Update Cart
+        </button>
+      </div>
+
+      <!-- =========================
+       COUPON + CART TOTAL
+  ========================== -->
+
+      <div
+        class="flex flex-col lg:flex-row justify-between items-stretch lg:items-start gap-8"
+      >
+        <!-- Coupon -->
+
+        <div
+          class="flex flex-col sm:flex-row items-stretch gap-4 w-full lg:w-1/2"
+        >
+          <input
+            id="couponInput"
+            type="text"
+            placeholder="Coupon Code"
+            class="border border-black rounded px-6 py-4 text-base w-full sm:w-64 focus:outline-none focus:border-[#DB4444]"
+          />
+
+          <button
+            id="couponButton"
+            type="button"
+            class="bg-[#DB4444] text-white rounded px-8 py-4 font-medium text-base hover:bg-red-500 transition-opacity w-full sm:w-auto"
+          >
+            Apply Coupon
+          </button>
+        </div>
+
+        <!-- Cart Total -->
+
+        <div class="border-2 border-black rounded p-5 sm:p-6 w-full lg:w-[38%]">
+          <h2 class="text-xl font-bold mb-6">Cart Total</h2>
+
+          <!-- Subtotal -->
+
+          <div
+            class="flex justify-between items-center border-b border-gray-300 pb-4 mb-4 text-base"
+          >
+            <span> Subtotal: </span>
+
+            <span id="subtotal" class="font-medium"> $0.00 </span>
+          </div>
+
+          <!-- Shipping -->
+
+          <div
+            class="flex justify-between items-center border-b border-gray-300 pb-4 mb-4 text-base"
+          >
+            <span> Shipping: </span>
+
+            <span id="shipping" class="font-medium"> Free </span>
+          </div>
+
+          <!-- Total -->
+
+          <div class="flex justify-between items-center mb-6 text-base">
+            <span> Total: </span>
+
+            <span id="total" class="font-medium"> $0.00 </span>
+          </div>
+
+          <!-- Checkout -->
+
+          <a
+            id="checkoutButton"
+            href="Checkout.html"
+            class="w-full bg-[#DB4444] text-white rounded py-4 font-medium text-base hover:bg-red-500 transition-opacity text-center block"
+          >
+            Proceed To Checkout
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================
+     FOOTER
+========================== -->
+
+    <footer class="bg-black text-white pt-12 sm:pt-16 pb-6 mt-12 sm:mt-20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-gray-800 pb-12"
+      >
+        <!-- Column 1 -->
+
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold tracking-wider">Exclusive</h2>
+
+          <h3 class="font-medium text-base">Subscribe</h3>
+
+          <p class="text-sm text-gray-300">Get 10% OFF on Your First Order</p>
+
+          <div
+            class="flex items-center border border-white rounded bg-transparent px-3 py-2 w-full max-w-[240px]"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="bg-transparent text-xs w-full focus:outline-none text-white placeholder-gray-500"
+            />
+
+            <button type="button" class="text-white flex-shrink-0">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Support</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li class="leading-relaxed">
+              111 Bijoy sarani, Dhaka Dh 1515, Bangladesh.
+            </li>
+
+            <li>exclusive@gmail.com</li>
+
+            <li>+88015-88888-9999</li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Account</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li>
+              <a href="Account.html" class="hover:underline"> My Account </a>
+            </li>
+
+            <li>
+              <a href="signUp.html" class="hover:underline">
+                Login / Register
+              </a>
+            </li>
+
+            <li>
+              <a href="MYCART.html" class="hover:underline"> Cart </a>
+            </li>
+
+            <li>
+              <a href="Wishlist.html" class="hover:underline"> Wishlist </a>
+            </li>
+
+            <li>
+              <a href="index.html" class="hover:underline"> Shop </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Quick Link</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li>
+              <a href="#" class="hover:underline"> Privacy Policy </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Terms of Use </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> FAQs </a>
+            </li>
+
+            <li>
+              <a href="contact.html" class="hover:underline"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 5 -->
+
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Download App</h2>
+
+          <p class="text-xs text-gray-400 font-medium">
+            Save $3 with App New User Only
+          </p>
+
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-16 h-16 bg-white p-1 rounded flex flex-col items-center justify-center text-black"
+            >
+              <div
+                class="w-full h-full border border-black border-dashed flex items-center justify-center font-bold text-[8px] text-center leading-none"
+              >
+                QR Code Download App
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 text-center text-sm text-gray-500"
+      >
+        <p>© Copyright Rimel 2025. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- =========================
+     JAVASCRIPT
+========================== -->
+
+    <script>
+      const API_URL = "https://dummyjson.com/products";
+
+      let cartItems = [];
+      let productsFromAPI = [];
+      let discountAmount = 0;
+
+      /* ==========================================
+     GET CART FROM LOCAL STORAGE
+  ========================================== */
+
+      function getCartFromLocalStorage() {
+        const possibleKeys = ["cart", "cartItems", "shoppingCart", "myCart"];
+
+        for (const key of possibleKeys) {
+          const savedCart = localStorage.getItem(key);
+
+          if (savedCart) {
+            try {
+              const parsedCart = JSON.parse(savedCart);
+
+              if (Array.isArray(parsedCart)) {
+                return parsedCart;
+              }
+            } catch (error) {
+              console.error("Error reading localStorage:", error);
+            }
+          }
+        }
+
+        return [];
+      }
+
+      /* ==========================================
+     SAVE CART
+  ========================================== */
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+
+        /*
+      Also save to these names so your other pages
+      can use the same cart if they use them.
+    */
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
+
+      /* ==========================================
+     NORMALIZE CART DATA
+  ========================================== */
+
+      function normalizeCartItem(item) {
+        /*
+      Supports:
+
+      [1, 2, 3]
+
+      or
+
+      [
+        {id: 1, quantity: 2},
+        {id: 2, quantity: 1}
+      ]
+
+      or
+
+      [
+        {productId: 1, quantity: 2}
+      ]
+
+      or complete DummyJSON product objects.
+    */
+
+        if (typeof item === "number" || typeof item === "string") {
+          return {
+            id: Number(item),
+            quantity: 1,
+          };
+        }
+
+        if (item && typeof item === "object") {
+          return {
+            ...item,
+
+            id: Number(item.id || item.productId || item.product_id),
+
+            quantity: Number(item.quantity || item.qty || 1),
+          };
+        }
+
+        return null;
+      }
+
+      /* ==========================================
+     FETCH ALL PRODUCTS
+  ========================================== */
+
+      async function fetchProducts() {
+        try {
+          const response = await fetch(API_URL + "?limit=0");
+
+          if (!response.ok) {
+            throw new Error("Unable to fetch products");
+          }
+
+          const data = await response.json();
+
+          productsFromAPI = data.products || [];
+
+          loadCart();
+        } catch (error) {
+          console.error(error);
+
+          document.getElementById("cartTableBody").innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="5"
+            class="p-12 text-center text-red-500"
+          >
+
+            Unable to load items TRY Again
+
+          </td>
+
+        </tr>
+
+      `;
+        }
+      }
+
+      /* ==========================================
+     LOAD CART
+  ========================================== */
+
+      function loadCart() {
+        const savedCart = getCartFromLocalStorage();
+
+        cartItems = savedCart
+          .map(normalizeCartItem)
+          .filter((item) => item && item.id);
+
+        /*
+      Match IDs with DummyJSON products.
+    */
+
+        cartItems = cartItems.map((item) => {
+          const apiProduct = productsFromAPI.find(
+            (product) => Number(product.id) === Number(item.id),
+          );
+
+          if (apiProduct) {
+            return {
+              ...apiProduct,
+              quantity: item.quantity || 1,
+            };
+          }
+
+          /*
+        If the complete product object was
+        already saved in localStorage.
+      */
+
+          return item;
+        });
+
+        saveCart();
+
+        displayCart();
+      }
+
+      /* ==========================================
+     DISPLAY CART
+  ========================================== */
+
+      function displayCart() {
+        const cartTableBody = document.getElementById("cartTableBody");
+
+        if (cartItems.length === 0) {
+          cartTableBody.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="5"
+            class="p-12 text-center"
+          >
+
+            <div
+              class="flex flex-col items-center justify-center gap-4"
+            >
+
+              <i
+                class="material-icons text-gray-300"
+                style="font-size:70px;"
+              >
+                shopping_cart
+              </i>
+
+              <p
+                class="text-gray-500 text-base"
+              >
+                Your cart is empty.
+              </p>
+
+              <a
+                href="index.html"
+                class="bg-[#DB4444] text-white px-6 py-3 rounded hover:bg-red-500"
+              >
+                Continue Shopping
+              </a>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      `;
+
+          updateTotals();
+
+          updateCartCount();
+
+          return;
+        }
+
+        cartTableBody.innerHTML = cartItems
+          .map((product, index) => {
+            const price = Number(product.price || 0);
+
+            const quantity = Number(product.quantity || 1);
+
+            const subtotal = price * quantity;
+
+            return `
+
+            <tr
+              class="border-b border-gray-100 hover:bg-gray-50 transition"
+            >
+
+              <!-- Product -->
+
+              <td class="p-4 sm:p-6">
+
+                <div
+                  class="flex items-center gap-4"
+                >
+
+                  <img
+                    src="${escapeHTML(
+                      product.thumbnail || product.images?.[0] || "",
+                    )}"
+                    alt="${escapeHTML(product.title || "Product")}"
+                    class="cart-product-image bg-gray-100 rounded"
+                  />
+
+                  <div>
+
+                    <h3
+                      class="font-medium text-sm sm:text-base max-w-[220px]"
+                    >
+                      ${escapeHTML(product.title || "Product")}
+                    </h3>
+
+                    <p
+                      class="text-xs text-gray-500 mt-1"
+                    >
+                      ${escapeHTML(product.category || "")}
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </td>
+
+
+              <!-- Price -->
+
+              <td
+                class="p-4 sm:p-6 font-medium"
+              >
+                $${price.toFixed(2)}
+              </td>
+
+
+              <!-- Quantity -->
+
+              <td class="p-4 sm:p-6">
+
+                <div
+                  class="flex items-center border border-gray-300 rounded w-fit"
+                >
+
+                  <button
+                    onclick="changeQuantity(${index}, -1)"
+                    class="w-9 h-9 flex items-center justify-center hover:bg-gray-100 text-lg"
+                  >
+                    −
+                  </button>
+
+                  <span
+                    class="w-10 text-center font-medium"
+                  >
+                    ${quantity}
+                  </span>
+
+                  <button
+                    onclick="changeQuantity(${index}, 1)"
+                    class="w-9 h-9 flex items-center justify-center hover:bg-gray-100 text-lg"
+                  >
+                    +
+                  </button>
+
+                </div>
+
+              </td>
+
+
+              <!-- Subtotal -->
+
+              <td
+                class="p-4 sm:p-6 font-medium"
+              >
+                $${subtotal.toFixed(2)}
+              </td>
+
+
+              <!-- Remove -->
+
+              <td class="p-4 sm:p-6">
+
+                <button
+                  onclick="removeFromCart(${index})"
+                  class="text-red-500 hover:text-red-700 transition"
+                  title="Remove"
+                >
+
+                  <i class="material-icons">
+                    delete
+                  </i>
+
+                </button>
+
+              </td>
+
+            </tr>
+
+          `;
+          })
+          .join("");
+
+        updateTotals();
+
+        updateCartCount();
+      }
+
+      /* ==========================================
+     CHANGE QUANTITY
+  ========================================== */
+
+      function changeQuantity(index, change) {
+        if (!cartItems[index]) return;
+
+        cartItems[index].quantity =
+          Number(cartItems[index].quantity || 1) + change;
+
+        if (cartItems[index].quantity <= 0) {
+          cartItems.splice(index, 1);
+        }
+
+        saveCart();
+
+        displayCart();
+      }
+
+      /* ==========================================
+     REMOVE PRODUCT
+  ========================================== */
+
+      function removeFromCart(index) {
+        if (!cartItems[index]) return;
+
+        cartItems.splice(index, 1);
+
+        saveCart();
+
+        displayCart();
+      }
+
+      /* ==========================================
+     UPDATE TOTALS
+  ========================================== */
+
+      function updateTotals() {
+        let subtotal = 0;
+
+        cartItems.forEach((product) => {
+          const price = Number(product.price || 0);
+
+          const quantity = Number(product.quantity || 1);
+
+          subtotal += price * quantity;
+        });
+
+        let shipping = 0;
+
+        /*
+      Free shipping.
+    */
+
+        let total = subtotal + shipping - discountAmount;
+
+        if (total < 0) {
+          total = 0;
+        }
+
+        document.getElementById("subtotal").textContent =
+          "$" + subtotal.toFixed(2);
+
+        document.getElementById("shipping").textContent = "Free";
+
+        document.getElementById("total").textContent = "$" + total.toFixed(2);
+      }
+
+      /* ==========================================
+     CART COUNT
+  ========================================== */
+
+      function updateCartCount() {
+        let count = 0;
+
+        cartItems.forEach((product) => {
+          count += Number(product.quantity || 1);
+        });
+
+        const cartCount = document.getElementById("cartCount");
+
+        const mobileCartCount = document.getElementById("mobileCartCount");
+
+        if (cartCount) {
+          cartCount.textContent = count;
+        }
+
+        if (mobileCartCount) {
+          mobileCartCount.textContent = count;
+        }
+
+        /*
+      Wishlist count
+    */
+
+        updateWishlistCount();
+      }
+
+      /* ==========================================
+     WISHLIST COUNT
+  ========================================== */
+
+      function updateWishlistCount() {
+        const possibleKeys = ["wishlist", "wishList", "wishlistItems"];
+
+        let wishlist = [];
+
+        for (const key of possibleKeys) {
+          const saved = localStorage.getItem(key);
+
+          if (saved) {
+            try {
+              const parsed = JSON.parse(saved);
+
+              if (Array.isArray(parsed)) {
+                wishlist = parsed;
+
+                break;
+              }
+            } catch (error) {}
+          }
+        }
+
+        const count = wishlist.length;
+
+        const wishlistCount = document.getElementById("wishlistCount");
+
+        const mobileWishlistCount = document.getElementById(
+          "mobileWishlistCount",
+        );
+
+        if (wishlistCount) {
+          wishlistCount.textContent = count;
+        }
+
+        if (mobileWishlistCount) {
+          mobileWishlistCount.textContent = count;
+        }
+      }
+
+      /* ==========================================
+     UPDATE CART BUTTON
+  ========================================== */
+
+      document
+        .getElementById("updateCartButton")
+        .addEventListener("click", function () {
+          saveCart();
+
+          displayCart();
+
+          alert("Cart updated successfully!");
+        });
+
+      /* ==========================================
+     COUPON
+  ========================================== */
+
+      document
+        .getElementById("couponButton")
+        .addEventListener("click", function () {
+          const coupon = document
+            .getElementById("couponInput")
+            .value.trim()
+            .toUpperCase();
+
+          if (!coupon) {
+            alert("Please enter a coupon code.");
+
+            return;
+          }
+
+          /*
+          Demo coupon.
+          Use SAVE10 for 10% discount.
+        */
+
+          if (coupon === "SAVE10") {
+            let subtotal = 0;
+
+            cartItems.forEach((product) => {
+              subtotal +=
+                Number(product.price || 0) * Number(product.quantity || 1);
+            });
+
+            discountAmount = subtotal * 0.1;
+
+            updateTotals();
+
+            alert("10% coupon applied!");
+          } else {
+            discountAmount = 0;
+
+            updateTotals();
+
+            alert("Invalid coupon code.");
+          }
+        });
+
+      /* ==========================================
+     MOBILE MENU
+  ========================================== */
+
+      const menuButton = document.getElementById("menuButton");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      let menuOpen = false;
+
+      menuButton.addEventListener("click", () => {
+        menuOpen = !menuOpen;
+
+        if (menuOpen) {
+          mobileMenu.classList.remove("max-h-0", "opacity-0");
+
+          mobileMenu.classList.add("max-h-[500px]", "opacity-100");
+
+          menuButton.innerHTML = '<i class="material-icons text-2xl">close</i>';
+        } else {
+          mobileMenu.classList.remove("max-h-[500px]", "opacity-100");
+
+          mobileMenu.classList.add("max-h-0", "opacity-0");
+
+          menuButton.innerHTML = '<i class="material-icons text-2xl">menu</i>';
+        }
+      });
+
+      /* ==========================================
+     ESCAPE HTML
+  ========================================== */
+
+      function escapeHTML(value) {
+        const div = document.createElement("div");
+
+        div.textContent = String(value ?? "");
+
+        return div.innerHTML;
+      }
+
+      /* ==========================================
+     INITIALIZE
+  ========================================== */
+
+      updateWishlistCount();
+
+      fetchProducts();
+    </script>
+  </body>
+</html>

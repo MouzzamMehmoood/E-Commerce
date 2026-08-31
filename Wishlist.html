@@ -1,0 +1,765 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive - Wishlist</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              exclusiveRed: "#DB4444",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body class="bg-white text-black font-sans antialiased">
+    <!-- Summer Sale Promotion Bar -->
+    <div>
+      <div
+        class="bg-black text-white flex flex-wrap justify-center items-center gap-5 p-4 text-sm md:text-base text-center"
+      >
+        <h3>
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        </h3>
+
+        <a href="#" class="underline hover:text-gray-300"> Shop now </a>
+      </div>
+
+      <!-- Navigation -->
+      <div class="border-b border-gray-300 px-4 py-4 font-bold">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5"
+        >
+          <!-- Logo -->
+          <h1 class="text-3xl">
+            <a href="index.html">Exclusive</a>
+          </h1>
+
+          <!-- Navigation Links -->
+          <ul class="flex flex-wrap items-center gap-6 lg:gap-10 text-[17px]">
+            <li class="hover:underline cursor-pointer">
+              <a href="index.html">Home</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="contact.html">Contact</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="about.html">About us</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="signUp.html">Sign in</a>
+            </li>
+          </ul>
+
+          <!-- Search + Icons -->
+          <div class="flex items-center gap-4">
+            <!-- Search -->
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search"
+                class="w-40 sm:w-52 lg:w-60 h-10 rounded-lg bg-gray-100 px-4 pr-10 text-sm font-normal outline-none"
+              />
+
+              <i
+                class="material-icons absolute right-3 top-2.5 cursor-pointer text-gray-700"
+              >
+                search
+              </i>
+            </div>
+
+            <!-- Wishlist -->
+            <div class="relative">
+              <a href="Wishlist.html">
+                <i class="material-icons cursor-pointer text-red-600">
+                  favorite
+                </i>
+              </a>
+
+              <span
+                id="wishlistCount"
+                class="absolute -top-3 -right-3 bg-[#db4444] text-white text-xs min-w-5 h-5 px-1 rounded-full flex items-center justify-center"
+              >
+                0
+              </span>
+            </div>
+
+            <!-- Cart -->
+            <div class="relative">
+              <a href="MYCART.html">
+                <i class="material-icons cursor-pointer text-blue-600">
+                  shopping_cart
+                </i>
+              </a>
+
+              <span
+                class="absolute -top-3 -right-3 bg-[#db4444] text-white text-xs min-w-5 h-5 px-1 rounded-full flex items-center justify-center"
+              >
+                0
+              </span>
+            </div>
+
+            <!-- Account -->
+            <a href="Account.html">
+              <i class="material-icons cursor-pointer text-gray-950">
+                account_circle
+              </i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Wishlist Header -->
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 mb-8"
+      >
+        <h1 id="wishlistTitle" class="text-xl font-normal text-black">
+          Wishlist (0)
+        </h1>
+
+        <button
+          id="moveAllBtn"
+          class="border border-black rounded px-6 py-4 font-medium text-base hover:bg-gray-50 transition-colors"
+        >
+          Move All to bag
+        </button>
+      </div>
+
+      <!-- Wishlist Products -->
+      <div
+        id="wishlistProducts"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16"
+      ></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-16 pb-6 mt-20">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-gray-800 pb-12"
+      >
+        <!-- Brand & Subscribe -->
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold tracking-wider">Exclusive</h2>
+
+          <h3 class="font-medium text-base">Subscribe</h3>
+
+          <p class="text-sm text-gray-300">Get 10% OFF on Your First Order</p>
+
+          <div
+            class="flex items-center border border-white rounded bg-transparent px-3 py-2 max-w-[250px]"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="bg-transparent text-xs w-full focus:outline-none text-white placeholder-gray-500"
+            />
+
+            <button class="text-white">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Support -->
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Support</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li class="leading-relaxed">
+              111 Bijoy sarani, Dhaka Dh 1515, Bangladesh.
+            </li>
+
+            <li>
+              <a href="mailto:exclusive@gmail.com" class="hover:underline">
+                exclusive@gmail.com
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+8801588888999" class="hover:underline">
+                +88015-88888-9999
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Account -->
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Account</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li>
+              <a href="#" class="hover:underline"> My Account </a>
+            </li>
+
+            <li>
+              <a href="signUp.html" class="hover:underline">
+                Login / Register
+              </a>
+            </li>
+
+            <li>
+              <a href="MYCART.html" class="hover:underline"> Cart </a>
+            </li>
+
+            <li>
+              <a href="Wishlist.html" class="hover:underline"> Wishlist </a>
+            </li>
+
+            <li>
+              <a href="index.html" class="hover:underline"> Shop </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Quick Link</h2>
+
+          <ul class="text-sm text-gray-300 space-y-3">
+            <li>
+              <a href="#" class="hover:underline"> Privacy Policy </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Terms of Use </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> FAQs </a>
+            </li>
+
+            <li>
+              <a href="contact.html" class="hover:underline"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download App -->
+        <div class="space-y-4">
+          <h2 class="text-lg font-semibold">Download App</h2>
+
+          <p class="text-xs text-gray-400 font-medium">
+            Save $3 with App New User Only
+          </p>
+
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-16 h-16 bg-white p-1 rounded flex flex-col items-center justify-center text-black"
+            >
+              <div
+                class="w-full h-full border border-black border-dashed flex items-center justify-center font-bold text-[8px] text-center leading-none"
+              >
+                QR Code Download App
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 text-center text-sm text-gray-500"
+      >
+        <p>© Copyright Rimel 2025. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Wishlist JavaScript -->
+    <script>
+      const API_URL = "https://dummyjson.com/products";
+
+      // --------------------------------------------------
+      // GET WISHLIST FROM LOCAL STORAGE
+      // --------------------------------------------------
+
+      function getWishlist() {
+        try {
+          const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+          if (!Array.isArray(wishlist)) {
+            return [];
+          }
+
+          return wishlist;
+        } catch (error) {
+          console.error("Wishlist localStorage error:", error);
+          return [];
+        }
+      }
+
+      // --------------------------------------------------
+      // SAVE WISHLIST TO LOCAL STORAGE
+      // --------------------------------------------------
+
+      function saveWishlist(wishlist) {
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      }
+
+      // --------------------------------------------------
+      // GET PRODUCT ID
+      // Supports:
+      // [1, 2, 3]
+      // or
+      // [{id: 1}, {id: 2}]
+      // --------------------------------------------------
+
+      function getProductId(item) {
+        if (typeof item === "object" && item !== null) {
+          return Number(item.id);
+        }
+
+        return Number(item);
+      }
+
+      // --------------------------------------------------
+      // LOAD WISHLIST PRODUCTS
+      // --------------------------------------------------
+
+      async function loadWishlist() {
+        const container = document.getElementById("wishlistProducts");
+        const title = document.getElementById("wishlistTitle");
+        const count = document.getElementById("wishlistCount");
+
+        const wishlist = getWishlist();
+
+        const wishlistIds = wishlist
+          .map(getProductId)
+          .filter((id) => Number.isInteger(id) && id > 0);
+
+        // Remove duplicate IDs
+        const uniqueIds = [...new Set(wishlistIds)];
+
+        // Update counters
+        title.textContent = `Wishlist (${uniqueIds.length})`;
+        count.textContent = uniqueIds.length;
+
+        // Empty wishlist
+        if (uniqueIds.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full flex flex-col items-center justify-center py-20">
+              <span class="material-icons text-7xl text-gray-300">
+                favorite_border
+              </span>
+
+              <h2 class="text-2xl font-semibold mt-5">
+                Your Wishlist is Empty
+              </h2>
+
+              <p class="text-gray-500 mt-2">
+                Add some products to your wishlist.
+              </p>
+
+              <a
+                href="index.html"
+                class="mt-6 bg-[#db4444] text-white px-6 py-3 rounded hover:bg-red-700 transition"
+              >
+                Continue Shopping
+              </a>
+            </div>
+          `;
+
+          return;
+        }
+
+        // Loading message
+        container.innerHTML = `
+          <div class="col-span-full text-center py-10">
+            <p class="text-gray-500 text-lg">
+              Loading wishlist...
+            </p>
+          </div>
+        `;
+
+        try {
+          // Fetch all DummyJSON products
+          const response = await fetch(`${API_URL}?limit=0`);
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch products");
+          }
+
+          const data = await response.json();
+
+          // Find only wishlist products
+          const products = data.products.filter((product) =>
+            uniqueIds.includes(Number(product.id)),
+          );
+
+          displayWishlistProducts(products);
+        } catch (error) {
+          console.error("Wishlist error:", error);
+
+          container.innerHTML = `
+            <div class="col-span-full text-center py-10">
+              <span class="material-icons text-5xl text-red-500">
+                error_outline
+              </span>
+
+              <p class="text-red-500 mt-3">
+                Unable to load wishlist products.
+              </p>
+
+              <button
+                onclick="loadWishlist()"
+                class="mt-4 bg-[#db4444] text-white px-5 py-2 rounded"
+              >
+                Try Again
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      // --------------------------------------------------
+      // DISPLAY WISHLIST PRODUCTS
+      // --------------------------------------------------
+
+      function displayWishlistProducts(products) {
+        const container = document.getElementById("wishlistProducts");
+
+        if (products.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full text-center py-20">
+              <span class="material-icons text-6xl text-gray-300">
+                inventory_2
+              </span>
+
+              <h2 class="text-xl font-semibold mt-4">
+                Products not found
+              </h2>
+            </div>
+          `;
+
+          return;
+        }
+
+        container.innerHTML = products
+          .map((product) => {
+            const originalPrice =
+              product.price / (1 - product.discountPercentage / 100);
+
+            return `
+              <div
+                class="group relative border border-gray-100 rounded-lg overflow-hidden bg-white"
+              >
+
+                <!-- Product Image -->
+                <div class="relative bg-gray-100 h-64 flex items-center justify-center overflow-hidden">
+
+                  <img
+                    src="${escapeHTML(product.thumbnail)}"
+                    alt="${escapeHTML(product.title)}"
+                    class="w-full h-full object-contain p-5 group-hover:scale-105 transition-transform duration-300"
+                  />
+
+                  <!-- Remove Wishlist -->
+                  <button
+                    onclick="removeFromWishlist(${product.id})"
+                    class="absolute top-3 right-3 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-gray-100 transition"
+                    title="Remove from wishlist"
+                  >
+                    <span class="material-icons text-red-600">
+                      delete
+                    </span>
+                  </button>
+
+                  ${
+                    product.discountPercentage
+                      ? `
+                    <span class="absolute top-3 left-3 bg-[#db4444] text-white text-xs px-3 py-1 rounded">
+                      -${Math.round(product.discountPercentage)}%
+                    </span>
+                  `
+                      : ""
+                  }
+
+                </div>
+
+                <!-- Product Information -->
+                <div class="p-4">
+
+                  <h3 class="font-medium text-base truncate">
+                    ${escapeHTML(product.title)}
+                  </h3>
+
+                  <!-- Price -->
+                  <div class="flex items-center gap-3 mt-2">
+
+                    <span class="text-[#db4444] font-medium">
+                      $${Number(product.price).toFixed(2)}
+                    </span>
+
+                    ${
+                      product.discountPercentage
+                        ? `
+                      <span class="text-gray-400 line-through text-sm">
+                        $${originalPrice.toFixed(2)}
+                      </span>
+                    `
+                        : ""
+                    }
+
+                  </div>
+
+                  <!-- Rating -->
+                  <div class="flex items-center gap-1 mt-2">
+
+                    <div class="flex">
+                      ${createStars(product.rating)}
+                    </div>
+
+                    <span class="text-gray-500 text-sm">
+                      (${product.rating})
+                    </span>
+
+                  </div>
+
+                  <!-- Add to Cart -->
+                  <button
+                    onclick="addToCart(${product.id})"
+                    class="w-full bg-black text-white py-2 mt-4 rounded hover:bg-[#db4444] transition"
+                  >
+                    Add To Cart
+                  </button>
+
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      // --------------------------------------------------
+      // CREATE RATING STARS
+      // --------------------------------------------------
+
+      function createStars(rating) {
+        const roundedRating = Math.round(Number(rating));
+
+        let stars = "";
+
+        for (let i = 1; i <= 5; i++) {
+          if (i <= roundedRating) {
+            stars += `
+              <span class="material-icons text-yellow-500 text-[18px]">
+                star
+              </span>
+            `;
+          } else {
+            stars += `
+              <span class="material-icons text-gray-300 text-[18px]">
+                star
+              </span>
+            `;
+          }
+        }
+
+        return stars;
+      }
+
+      // --------------------------------------------------
+      // REMOVE PRODUCT FROM WISHLIST
+      // --------------------------------------------------
+
+      function removeFromWishlist(productId) {
+        let wishlist = getWishlist();
+
+        wishlist = wishlist.filter((item) => {
+          return getProductId(item) !== Number(productId);
+        });
+
+        saveWishlist(wishlist);
+
+        loadWishlist();
+      }
+
+      // --------------------------------------------------
+      // ADD PRODUCT TO CART
+      // --------------------------------------------------
+
+      function addToCart(productId) {
+        let cart = [];
+
+        try {
+          cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+          if (!Array.isArray(cart)) {
+            cart = [];
+          }
+        } catch (error) {
+          cart = [];
+        }
+
+        const existingProduct = cart.find(
+          (item) => getProductId(item) === Number(productId),
+        );
+
+        if (existingProduct) {
+          if (existingProduct.quantity) {
+            existingProduct.quantity++;
+          } else {
+            existingProduct.quantity = 2;
+          }
+        } else {
+          cart.push({
+            id: Number(productId),
+            quantity: 1,
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart!");
+
+        updateCartCount();
+      }
+
+      // --------------------------------------------------
+      // UPDATE CART COUNTER
+      // --------------------------------------------------
+
+      function updateCartCount() {
+        let cart = [];
+
+        try {
+          cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+          if (!Array.isArray(cart)) {
+            cart = [];
+          }
+        } catch (error) {
+          cart = [];
+        }
+
+        let totalQuantity = 0;
+
+        cart.forEach((item) => {
+          totalQuantity += Number(item.quantity) || 1;
+        });
+
+        const cartCounters = document.querySelectorAll(
+          'a[href="MYCART.html"] + span',
+        );
+
+        cartCounters.forEach((counter) => {
+          counter.textContent = totalQuantity;
+        });
+      }
+
+      // --------------------------------------------------
+      // ESCAPE HTML
+      // --------------------------------------------------
+
+      function escapeHTML(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      // --------------------------------------------------
+      // MOVE ALL TO BAG
+      // --------------------------------------------------
+
+      document
+        .getElementById("moveAllBtn")
+        .addEventListener("click", async function () {
+          const wishlist = getWishlist();
+
+          const wishlistIds = wishlist
+            .map(getProductId)
+            .filter((id) => Number.isInteger(id) && id > 0);
+
+          const uniqueIds = [...new Set(wishlistIds)];
+
+          if (uniqueIds.length === 0) {
+            alert("Your wishlist is empty.");
+            return;
+          }
+
+          let cart = [];
+
+          try {
+            cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+            if (!Array.isArray(cart)) {
+              cart = [];
+            }
+          } catch (error) {
+            cart = [];
+          }
+
+          uniqueIds.forEach((id) => {
+            const existingProduct = cart.find(
+              (item) => getProductId(item) === id,
+            );
+
+            if (existingProduct) {
+              existingProduct.quantity =
+                (Number(existingProduct.quantity) || 1) + 1;
+            } else {
+              cart.push({
+                id: id,
+                quantity: 1,
+              });
+            }
+          });
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+
+          // Empty wishlist after moving everything
+          localStorage.setItem("wishlist", JSON.stringify([]));
+
+          alert("All wishlist products have been moved to your bag.");
+
+          loadWishlist();
+          updateCartCount();
+        });
+
+      // --------------------------------------------------
+      // START
+      // --------------------------------------------------
+
+      loadWishlist();
+      updateCartCount();
+    </script>
+  </body>
+</html>

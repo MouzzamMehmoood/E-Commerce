@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive</title>
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandred: "#db4444",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #db4444;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-white text-black font-sans antialiased flex flex-col min-h-screen"
+  >
+    <!-- Top Promo Banner -->
+    <div
+      class="bg-black text-white text-xs md:text-sm py-3 px-4 text-center relative"
+    >
+      <p>
+        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        <a
+          href="#"
+          class="underline font-semibold ml-2 hover:text-gray-300 transition-colors"
+          >ShopNow</a
+        >
+      </p>
+
+      <div
+        class="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 hidden sm:block"
+      >
+        <select
+          class="bg-black text-white border-none focus:outline-none cursor-pointer text-xs"
+        >
+          <option>English</option>
+          <option>Español</option>
+          <option>Français</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Main Header Navigation -->
+    <header class="border-b border-gray-200 sticky top-0 bg-white z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
+        <a href="index.html" class="text-2xl font-bold tracking-wider">
+          Exclusive
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex space-x-12 text-base font-medium">
+          <a href="index.html" class="hover:text-[#db4444] transition-all">
+            Home
+          </a>
+
+          <a href="contact.html" class="hover:text-[#db4444] transition-all">
+            Contact
+          </a>
+
+          <a href="about.html" class="hover:text-[#db4444] transition-all">
+            About
+          </a>
+
+          <a href="signUp.html" class="hover:text-[#db4444] transition-all">
+            Sign Up
+          </a>
+        </nav>
+
+        <!-- Search Field Box -->
+        <div class="flex items-center space-x-4">
+          <div class="relative hidden sm:block">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="What are you looking for?"
+              class="bg-[#f5f5f5] text-xs rounded px-4 py-2 pr-10 focus:outline-none w-60"
+            />
+
+            <svg
+              class="w-4 h-4 absolute right-3 top-2.5 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Showcase Container -->
+    <main class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <!-- Breadcrumb Navigation & Category Return Row -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12"
+        >
+          <nav class="text-sm" aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex space-x-2">
+              <li class="flex items-center">
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  Home
+                </a>
+
+                <span class="mx-2 text-gray-400">/</span>
+              </li>
+
+              <li class="flex items-center">
+                <span id="breadcrumbCategory" class="text-black font-medium">
+                  Women's Fashion
+                </span>
+              </li>
+            </ol>
+          </nav>
+
+          <div>
+            <a
+              href="index.html"
+              class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-[#db4444] transition-colors"
+            >
+              <svg
+                class="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                ></path>
+              </svg>
+
+              Back to Categories
+            </a>
+          </div>
+        </div>
+
+        <!-- Header Titles Section -->
+        <div class="space-y-3 mb-10">
+          <div class="flex items-center space-x-4">
+            <div class="w-5 h-10 bg-[#db4444] rounded-sm"></div>
+
+            <span
+              class="text-[#db4444] font-semibold text-sm tracking-wider uppercase"
+            >
+              Featured
+            </span>
+          </div>
+          <div class="flex gap-7 flex-col">
+            <h1 class="text-3xl md:text-4xl font-semibold tracking-wide">
+              Explore Our Products
+            </h1>
+            <h1
+              id="categoryTitle"
+              class="text-2xl flex font-bold text-[#db4444] ml-0"
+            >
+              Women's Fashion
+            </h1>
+          </div>
+        </div>
+
+        <!-- Dynamic Category Product Grid -->
+        <div class="mt-10">
+          <!-- Loading -->
+          <div id="loading" class="flex justify-center items-center py-20">
+            <div class="text-gray-500 text-lg">Loading products...</div>
+          </div>
+
+          <!-- Error -->
+          <div id="errorMessage" class="hidden text-center py-20">
+            <p class="text-[#db4444] text-lg font-medium">
+              Unable to load products.
+            </p>
+
+            <button
+              onclick="loadProducts()"
+              class="mt-4 bg-[#db4444] text-white px-6 py-2 rounded cursor-pointer hover:bg-[#e15c5c] transition"
+            >
+              Try Again
+            </button>
+          </div>
+
+          <!-- Products -->
+          <div
+            id="productContainer"
+            class="flex flex-wrap gap-8 justify-center mt-10 px-10"
+          ></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Global Navigation Footer -->
+    <footer class="bg-black text-white pt-16 pb-6 text-sm mt-auto">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 border-b border-gray-800 pb-12"
+      >
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold tracking-wider">
+            <a href="index.html" class="hover:text-gray-300"> Exclusive </a>
+          </h2>
+
+          <h3 class="font-medium">Subscribe</h3>
+
+          <p class="text-gray-400 text-xs">Get 10% OFF on Your First Order</p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Support</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>111 Bijoy sarani, Dhaka Dh 1515, Bangladesh.</li>
+
+            <li>
+              <a href="mailto:exclusive@gmail.com" class="hover:underline">
+                exclusive@gmail.com
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+8801588888999" class="hover:underline">
+                +88015-88888-9999
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Account</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> My Account </a>
+            </li>
+
+            <li>
+              <a href="signUp.html" class="hover:underline">
+                Login / Register
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Cart </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Wishlist </a>
+            </li>
+
+            <li>
+              <a href="index.html" class="hover:underline"> Shop </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Quick Link</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> Privacy Policy </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Terms of Use </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> FAQs </a>
+            </li>
+
+            <li>
+              <a href="contact.html" class="hover:underline"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Download App</h3>
+
+          <p class="text-gray-400 text-xs">Save \$3 with App New User Only</p>
+
+          <div class="w-24 h-24 bg-white p-2 rounded">
+            <div
+              class="w-full h-full bg-gray-200 flex items-center justify-center text-black text-[10px] font-bold text-center"
+            >
+              QR Code
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-gray-500 pt-6">
+        © Copyright Rimel 2025. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- API SCRIPT                                                 -->
+    <!-- ========================================================= -->
+
+    <script>
+      const API_URL = "https://dummyjson.com/products";
+
+      const productContainer = document.getElementById("productContainer");
+      const loading = document.getElementById("loading");
+      const errorMessage = document.getElementById("errorMessage");
+      const categoryTitle = document.getElementById("categoryTitle");
+      const breadcrumbCategory = document.getElementById("breadcrumbCategory");
+      const searchInput = document.getElementById("searchInput");
+
+      // =========================================================
+      // CATEGORY SETTINGS
+      // =========================================================
+
+      const CATEGORY_SETTINGS = {
+        women: {
+          title: "Women's Fashion",
+          breadcrumb: "Women's Fashion",
+          apiCategories: [
+            "womens-dresses",
+            "womens-shoes",
+            "womens-bags",
+            "womens-jewellery",
+            "womens-watches",
+          ],
+        },
+
+        men: {
+          title: "Men's Fashion",
+          breadcrumb: "Men's Fashion",
+          apiCategories: ["mens-shirts", "mens-shoes", "mens-watches"],
+        },
+
+        electronics: {
+          title: "Electronics",
+          breadcrumb: "Electronics",
+          apiCategories: ["laptops", "mobile-accessories", "tablets"],
+        },
+
+        groceries: {
+          title: "Groceries",
+          breadcrumb: "Groceries",
+          apiCategories: ["groceries"],
+        },
+
+        beauty: {
+          title: "Beauty",
+          breadcrumb: "Beauty",
+          apiCategories: ["beauty", "skin-care", "fragrances"],
+        },
+
+        fragrances: {
+          title: "Fragrances",
+          breadcrumb: "Fragrances",
+          apiCategories: ["fragrances"],
+        },
+
+        furniture: {
+          title: "Furniture",
+          breadcrumb: "Furniture",
+          apiCategories: ["furniture"],
+        },
+
+        tops: {
+          title: "Tops",
+          breadcrumb: "Tops",
+          apiCategories: ["tops"],
+        },
+
+        kitchen: {
+          title: "Kitchen Accessories",
+          breadcrumb: "Kitchen Accessories",
+          apiCategories: ["kitchen-accessories"],
+        },
+
+        home: {
+          title: "Home Decoration",
+          breadcrumb: "Home Decoration",
+          apiCategories: ["home-decoration"],
+        },
+
+        all: {
+          title: "All Products",
+          breadcrumb: "All Products",
+          apiCategories: [],
+        },
+        laptops: {
+          title: "Laptops",
+          breadcrumb: "Laptops",
+          apiCategories: ["laptops"],
+        },
+        fragrances: {
+          title: "Fragrances",
+          breadcrumb: "Fragrances",
+          apiCategories: ["fragrances"],
+        },
+        watches: {
+          title: "Watches",
+          breadcrumb: "Watches",
+          apiCategories: ["mens-watches", "womens-watches"],
+        },
+        beauty: {
+          title: "Beauty",
+          breadcrumb: "Beauty",
+          apiCategories: ["beauty", "skin-care"],
+        },
+      };
+
+      // =========================================================
+      // GET CATEGORY FROM URL
+      // =========================================================
+
+      function getCategoryFromURL() {
+        const params = new URLSearchParams(window.location.search);
+
+        return (params.get("category") || "women").toLowerCase().trim();
+      }
+
+      // =========================================================
+      // GET CATEGORY SETTINGS
+      // =========================================================
+
+      function getCategorySettings() {
+        const category = getCategoryFromURL();
+
+        return CATEGORY_SETTINGS[category] || CATEGORY_SETTINGS.all;
+      }
+
+      // =========================================================
+      // UPDATE PAGE TITLE
+      // =========================================================
+
+      function updatePageInfo() {
+        const settings = getCategorySettings();
+
+        categoryTitle.textContent = settings.title;
+
+        breadcrumbCategory.textContent = settings.breadcrumb;
+
+        document.title = `${settings.title} - Exclusive`;
+
+        return settings;
+      }
+
+      // =========================================================
+      // GET ALL PRODUCTS
+      // =========================================================
+
+      async function fetchProducts() {
+        const response = await fetch(`${API_URL}?limit=0`);
+
+        if (!response.ok) {
+          throw new Error("Could not load products");
+        }
+
+        const data = await response.json();
+
+        return data.products || [];
+      }
+
+      // =========================================================
+      // FILTER PRODUCTS
+      // =========================================================
+
+      function filterProducts(products, settings) {
+        // If no categories = show everything
+        if (!settings.apiCategories || settings.apiCategories.length === 0) {
+          return products;
+        }
+
+        return products.filter((product) =>
+          settings.apiCategories.includes(product.category),
+        );
+      }
+
+      // =========================================================
+      // LOAD PRODUCTS
+      // =========================================================
+
+      async function loadProducts() {
+        const settings = updatePageInfo();
+
+        // Clear old products
+        productContainer.innerHTML = "";
+
+        // IMPORTANT:
+        // Never display "Loading products..."
+        loading.classList.add("hidden");
+
+        // Hide previous error
+        errorMessage.classList.add("hidden");
+
+        try {
+          const allProducts = await fetchProducts();
+
+          const products = filterProducts(allProducts, settings);
+
+          // ==========================================
+          // PRODUCTS RECEIVED
+          // ==========================================
+
+          if (products.length === 0) {
+            productContainer.innerHTML = `
+          <div class="w-full text-center py-20">
+            <p class="text-gray-500 text-lg">
+              No products found in this category.
+            </p>
+          </div>
+        `;
+
+            return;
+          }
+
+          // ==========================================
+          // DISPLAY PRODUCTS
+          // ==========================================
+
+          displayProducts(products);
+
+          // ==========================================
+          // MAKE ABSOLUTELY SURE LOADING IS HIDDEN
+          // ==========================================
+
+          loading.classList.add("hidden");
+        } catch (error) {
+          console.error("Product API Error:", error);
+
+          loading.classList.add("hidden");
+
+          errorMessage.classList.remove("hidden");
+        }
+      }
+
+      // =========================================================
+      // WISHLIST
+      // =========================================================
+
+      function getWishlist() {
+        try {
+          return JSON.parse(localStorage.getItem("wishlist")) || [];
+        } catch {
+          return [];
+        }
+      }
+
+      function isInWishlist(productId) {
+        return getWishlist().includes(Number(productId));
+      }
+
+      function toggleWishlist(productId, button) {
+        productId = Number(productId);
+
+        let wishlist = getWishlist();
+
+        const icon = button.querySelector(".wishlist-icon");
+
+        if (wishlist.includes(productId)) {
+          // ==========================================
+          // REMOVE
+          // ==========================================
+
+          wishlist = wishlist.filter((id) => id !== productId);
+
+          icon.classList.remove("text-red-500");
+
+          icon.classList.add("text-gray-800");
+
+          button.setAttribute("aria-label", "Add to wishlist");
+        } else {
+          // ==========================================
+          // ADD
+          // ==========================================
+
+          wishlist.push(productId);
+
+          icon.classList.remove("text-gray-800");
+
+          icon.classList.add("text-red-500");
+
+          button.setAttribute("aria-label", "Remove from wishlist");
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      }
+
+      // =========================================================
+      // OPEN PRODUCT
+      // =========================================================
+
+      function openProduct(productId) {
+        window.location.href = `product.html?id=${encodeURIComponent(
+          productId,
+        )}`;
+      }
+
+      // =========================================================
+      // DISPLAY PRODUCTS
+      // =========================================================
+
+      function displayProducts(products) {
+        productContainer.innerHTML = "";
+
+        products.forEach(function (product) {
+          const productCard = document.createElement("div");
+
+          const active = isInWishlist(product.id);
+
+          productCard.className =
+            "w-full sm:w-[280px] md:w-[280px] lg:w-[280px] bg-white rounded-lg overflow-hidden group";
+
+          productCard.innerHTML = `
+
+          <!-- ===================================== -->
+          <!-- PRODUCT IMAGE -->
+          <!-- ===================================== -->
+
+          <div
+            class="relative bg-[#f5f5f5]
+            h-[280px]
+            flex items-center
+            justify-center
+            rounded-lg
+            overflow-hidden"
+          >
+
+            <img
+              src="${escapeHTML(product.thumbnail)}"
+              alt="${escapeHTML(product.title)}"
+              class="w-full h-full
+              object-contain p-6
+              group-hover:scale-105
+              transition-transform
+              duration-300"
+              loading="lazy"
+            />
+
+
+            <!-- ================================= -->
+            <!-- DISCOUNT -->
+            <!-- ================================= -->
+
+            ${
+              product.discountPercentage
+                ? `
+                  <span
+                    class="absolute top-3 left-3
+                    bg-[#db4444]
+                    text-white
+                    text-xs
+                    px-3 py-1
+                    rounded"
+                  >
+                    -${Math.round(product.discountPercentage)}%
+                  </span>
+                `
+                : ""
+            }
+
+
+            <!-- ================================= -->
+            <!-- ACTION BUTTONS -->
+            <!-- ================================= -->
+
+            <div
+              class="absolute
+              top-3 right-3
+              flex flex-col gap-2"
+            >
+
+              <!-- HEART -->
+
+              <button
+                type="button"
+                onclick="toggleWishlist(
+                  ${product.id},
+                  this
+                )"
+                aria-label="${
+                  active ? "Remove from wishlist" : "Add to wishlist"
+                }"
+                class="w-9 h-9
+                bg-white
+                rounded-full
+                flex items-center
+                justify-center
+                shadow-md
+                hover:scale-110
+                transition-all
+                duration-200"
+              >
+
+                <span
+                  class="material-icons
+                  wishlist-icon
+                  ${active ? "text-red-500" : "text-gray-800"}"
+                >
+                  favorite
+                </span>
+
+              </button>
+
+
+              <!-- EYE -->
+
+              <button
+                type="button"
+                onclick="openProduct(
+                  ${product.id}
+                )"
+                aria-label="View product"
+                class="w-9 h-9
+                bg-white
+                rounded-full
+                flex items-center
+                justify-center
+                shadow-md
+                text-gray-800
+                hover:text-blue-500
+                hover:scale-110
+                transition-all
+                duration-200"
+              >
+
+                <span
+                  class="material-icons"
+                >
+                  visibility
+                </span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===================================== -->
+          <!-- PRODUCT INFORMATION -->
+          <!-- ===================================== -->
+
+          <div class="pt-4">
+
+            <h3
+              class="font-medium
+              text-base
+              truncate"
+              title="${escapeHTML(product.title)}"
+            >
+              ${escapeHTML(product.title)}
+            </h3>
+
+
+            <!-- PRICE -->
+
+            <div
+              class="flex
+              items-center
+              gap-3 mt-2"
+            >
+
+              <span
+                class="text-[#db4444]
+                font-medium"
+              >
+                $${Number(product.price).toFixed(2)}
+              </span>
+
+              ${
+                product.discountPercentage
+                  ? `
+                    <span
+                      class="text-gray-400
+                      line-through
+                      text-sm"
+                    >
+                      $${calculateOriginalPrice(
+                        product.price,
+                        product.discountPercentage,
+                      )}
+                    </span>
+                  `
+                  : ""
+              }
+
+            </div>
+
+
+            <!-- RATING -->
+
+            <div
+              class="flex
+              items-center
+              gap-2 mt-2"
+            >
+
+              <div
+                class="flex
+                text-yellow-400"
+              >
+                ${createStars(product.rating)}
+              </div>
+
+              <span
+                class="text-gray-500
+                text-sm"
+              >
+                (${product.reviews?.length || 0})
+              </span>
+
+            </div>
+
+
+            <!-- CATEGORY -->
+
+            <p
+              class="text-xs
+              text-gray-400
+              mt-2 capitalize"
+            >
+              ${escapeHTML(String(product.category).replaceAll("-", " "))}
+            </p>
+
+          </div>
+        `;
+
+          productContainer.appendChild(productCard);
+        });
+
+        // IMPORTANT
+        // Remove loading AFTER cards are inserted
+        loading.classList.add("hidden");
+      }
+
+      // =========================================================
+      // ORIGINAL PRICE
+      // =========================================================
+
+      function calculateOriginalPrice(price, discount) {
+        const original = price / (1 - discount / 100);
+
+        return original.toFixed(2);
+      }
+
+      // =========================================================
+      // STARS
+      // =========================================================
+
+      function createStars(rating) {
+        let stars = "";
+
+        const roundedRating = Math.round(rating || 0);
+
+        for (let i = 1; i <= 5; i++) {
+          if (i <= roundedRating) {
+            stars += "★";
+          } else {
+            stars += "☆";
+          }
+        }
+
+        return stars;
+      }
+
+      // =========================================================
+      // SEARCH
+      // =========================================================
+
+      let searchTimeout;
+
+      searchInput.addEventListener("input", function () {
+        clearTimeout(searchTimeout);
+
+        const searchValue = searchInput.value.trim().toLowerCase();
+
+        searchTimeout = setTimeout(async function () {
+          // ========================================
+          // EMPTY SEARCH
+          // ========================================
+
+          if (searchValue === "") {
+            loadProducts();
+
+            return;
+          }
+
+          // ========================================
+          // CLEAR PRODUCTS
+          // ========================================
+
+          productContainer.innerHTML = "";
+
+          // Never show loading text
+          loading.classList.add("hidden");
+
+          errorMessage.classList.add("hidden");
+
+          try {
+            const response = await fetch(
+              API_URL + "/search?q=" + encodeURIComponent(searchValue),
+            );
+
+            if (!response.ok) {
+              throw new Error("Search failed");
+            }
+
+            const data = await response.json();
+
+            if (!data.products || data.products.length === 0) {
+              productContainer.innerHTML = `
+                  <div
+                    class="w-full
+                    text-center
+                    py-20"
+                  >
+                    <p
+                      class="text-gray-500
+                      text-lg"
+                    >
+                      No products found.
+                    </p>
+                  </div>
+                `;
+
+              return;
+            }
+
+            // Display search results
+            displayProducts(data.products);
+          } catch (error) {
+            console.error("Search Error:", error);
+
+            productContainer.innerHTML = `
+                <div
+                  class="w-full
+                  text-center
+                  py-20"
+                >
+                  <p
+                    class="text-red-500"
+                  >
+                    Search failed.
+                    Please try again.
+                  </p>
+                </div>
+              `;
+          }
+        }, 300);
+      });
+
+      // =========================================================
+      // ESCAPE HTML
+      // =========================================================
+
+      function escapeHTML(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      // =========================================================
+      // START
+      // =========================================================
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadProducts();
+      });
+    </script>
+  </body>
+</html>

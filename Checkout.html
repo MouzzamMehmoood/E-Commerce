@@ -1,0 +1,834 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Exclusive - Checkout</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              exclusiveRed: "#DB4444",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body class="bg-white text-black font-sans antialiased">
+    <!-- Summer Sale Promotion Bar -->
+    <div>
+      <div
+        class="bg-black text-white flex flex-wrap justify-center items-center gap-5 p-4 text-sm md:text-base text-center"
+      >
+        <h3>
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        </h3>
+
+        <a href="index.html" class="underline hover:text-gray-300">
+          Shop now
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <div class="border-b border-gray-300 px-4 py-4 font-bold">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5"
+        >
+          <!-- Logo -->
+          <h1 class="text-3xl">
+            <a href="index.html">Exclusive</a>
+          </h1>
+
+          <!-- Navigation Links -->
+          <ul class="flex flex-wrap items-center gap-6 lg:gap-10 text-[17px]">
+            <li class="hover:underline cursor-pointer">
+              <a href="index.html">Home</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="contact.html">Contact</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="about.html">About us</a>
+            </li>
+
+            <li class="hover:underline cursor-pointer">
+              <a href="signUp.html">Sign in</a>
+            </li>
+          </ul>
+
+          <!-- Search and Icons -->
+          <div class="flex items-center gap-4">
+            <!-- Search -->
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search"
+                class="w-40 sm:w-52 lg:w-60 h-10 rounded-lg bg-gray-100 px-4 pr-10 text-sm font-normal outline-none"
+              />
+
+              <i
+                class="material-icons absolute right-3 top-2.5 cursor-pointer text-gray-700"
+              >
+                search
+              </i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Checkout Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <!-- Breadcrumb Navigation -->
+      <nav
+        class="text-sm text-gray-400 mb-12 flex flex-wrap items-center gap-2"
+      >
+        <a href="index.html" class="hover:text-black transition"> Home </a>
+
+        <span>/</span>
+
+        <a href="product.html" class="hover:text-black transition"> Product </a>
+
+        <span>/</span>
+
+        <a href="MYCART.html" class="hover:text-black transition">
+          View Cart
+        </a>
+
+        <span>/</span>
+
+        <span class="text-black font-medium"> CheckOut </span>
+      </nav>
+
+      <!-- Checkout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <!-- Left Column: Billing Details -->
+        <div class="lg:col-span-7">
+          <h2
+            class="text-3xl md:text-4xl font-semibold tracking-wide text-black mb-8"
+          >
+            Billing Details
+          </h2>
+
+          <form id="billingForm" class="space-y-6">
+            <!-- Name -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Name
+                <span class="text-red-500 ml-0.5">*</span>
+              </label>
+
+              <input
+                type="text"
+                required
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Company Name -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Company Name
+              </label>
+
+              <input
+                type="text"
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Street Address -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Street Address
+                <span class="text-red-500 ml-0.5">*</span>
+              </label>
+
+              <input
+                type="text"
+                required
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Apartment -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Apartment, Floor (optional)
+              </label>
+
+              <input
+                type="text"
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Town / City -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Town / City
+                <span class="text-red-500 ml-0.5">*</span>
+              </label>
+
+              <input
+                type="text"
+                required
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Phone Number
+                <span class="text-red-500 ml-0.5">*</span>
+              </label>
+
+              <input
+                type="tel"
+                required
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">
+                Email Address
+                <span class="text-red-500 ml-0.5">*</span>
+              </label>
+
+              <input
+                type="email"
+                required
+                class="w-full bg-[#f5f5f5] rounded-md px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 transition"
+              />
+            </div>
+
+            <!-- Save Information -->
+            <div class="flex items-center gap-3 pt-2">
+              <input
+                type="checkbox"
+                id="save-info"
+                class="w-5 h-5 accent-[#db4444] rounded border-gray-300 focus:ring-0 cursor-pointer"
+              />
+
+              <label
+                for="save-info"
+                class="text-sm font-medium text-black select-none cursor-pointer"
+              >
+                Save this information for next time
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Column -->
+        <div class="lg:col-span-5 pt-4 lg:pt-14 space-y-6">
+          <!-- Product Rows -->
+          <div id="checkoutProducts" class="space-y-6">
+            <!-- Products will be added here by JavaScript -->
+          </div>
+
+          <!-- Financial Breakdown -->
+          <div class="space-y-4 pt-2">
+            <!-- Subtotal -->
+            <div
+              class="flex justify-between text-sm font-medium text-black pb-3 border-b border-gray-200"
+            >
+              <span>Subtotal:</span>
+
+              <span id="checkoutSubtotal"> $0.00 </span>
+            </div>
+
+            <!-- Shipping -->
+            <div
+              class="flex justify-between text-sm font-medium text-black pb-3 border-b border-gray-200"
+            >
+              <span>Shipping:</span>
+
+              <span id="shippingPrice"> Free </span>
+            </div>
+
+            <!-- Total -->
+            <div
+              class="flex justify-between text-sm font-medium text-black pb-2"
+            >
+              <span>Total:</span>
+
+              <span id="checkoutTotal"> $0.00 </span>
+            </div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="space-y-4 pt-2">
+            <!-- Bank Payment -->
+            <label
+              class="flex items-center justify-between cursor-pointer group"
+            >
+              <div class="flex items-center gap-3">
+                <input
+                  type="radio"
+                  name="payment_method"
+                  value="bank"
+                  class="w-5 h-5 accent-black cursor-pointer"
+                />
+
+                <span class="text-sm font-medium text-black"> Bank </span>
+              </div>
+
+              <div
+                class="flex gap-1.5 opacity-80 group-hover:opacity-100 transition"
+              ></div>
+            </label>
+
+            <!-- Cash on Delivery -->
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="payment_method"
+                value="cod"
+                checked
+                class="w-5 h-5 accent-black cursor-pointer"
+              />
+
+              <span class="text-sm font-medium text-black">
+                Cash on delivery
+              </span>
+            </label>
+          </div>
+
+          <!-- Coupon -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <input
+              id="couponInput"
+              type="text"
+              placeholder="Coupon Code"
+              class="flex-1 border border-black rounded px-4 py-3.5 focus:outline-none focus:ring-1 focus:ring-gray-400 placeholder-gray-400 text-sm"
+            />
+
+            <button
+              id="couponButton"
+              type="button"
+              class="bg-[#db4444] text-white font-medium text-sm px-10 py-3.5 rounded hover:bg-[#c23b3b] transition duration-200 whitespace-nowrap"
+            >
+              Apply Coupon
+            </button>
+          </div>
+
+          <!-- Place Order -->
+          <div class="pt-2" id="placeit">
+            <button
+              id="placeOrderButton"
+              type="button"
+              class="w-full sm:w-auto bg-[#db4444] text-white font-medium text-sm px-12 py-4 rounded hover:bg-[#c23b3b] transition duration-200"
+            >
+              Place Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-16 pb-6 text-sm mt-auto">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 border-b border-gray-800 pb-12"
+      >
+        <!-- Brand -->
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold tracking-wider">Exclusive</h2>
+
+          <h3 class="font-medium">Subscribe</h3>
+
+          <p class="text-gray-400 text-xs">Get 10% OFF on Your First Order</p>
+        </div>
+
+        <!-- Support -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Support</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>111 Bijoy sarani, Dhaka Dh 1515, Bangladesh.</li>
+
+            <li>
+              <a href="mailto:exclusive@gmail.com" class="hover:underline">
+                exclusive@gmail.com
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+8801588888999" class="hover:underline">
+                +88015-88888-9999
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Account -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Account</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> My Account </a>
+            </li>
+
+            <li>
+              <a href="signUp.html" class="hover:underline">
+                Login / Register
+              </a>
+            </li>
+
+            <li>
+              <a href="MYCART.html" class="hover:underline"> Cart </a>
+            </li>
+
+            <li>
+              <a href="Wishlist.html" class="hover:underline"> Wishlist </a>
+            </li>
+
+            <li>
+              <a href="index.html" class="hover:underline"> Shop </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Quick Link</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> Privacy Policy </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Terms of Use </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> FAQs </a>
+            </li>
+
+            <li>
+              <a href="contact.html" class="hover:underline"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download App -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Download App</h3>
+
+          <p class="text-gray-400 text-xs">Save $3 with App New User Only</p>
+
+          <div class="w-24 h-24 bg-white p-2 rounded">
+            <div
+              class="w-full h-full bg-gray-200 flex items-center justify-center text-black text-[10px] font-bold text-center"
+            >
+              QR Code
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center text-xs text-gray-500 pt-6">
+        © Copyright Rimel 2025. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- =====================================================
+     CART / CHECKOUT JAVASCRIPT
+====================================================== -->
+
+    <script>
+      /*
+       * =====================================================
+       * GET CART FROM LOCAL STORAGE
+       * =====================================================
+       *
+       * This checks several common names so the checkout
+       * can work with the cart page.
+       */
+
+      function getCart() {
+        const possibleKeys = [
+          "cart",
+          "cartItems",
+          "shoppingCart",
+          "myCart",
+          "exclusiveCart",
+        ];
+
+        for (let key of possibleKeys) {
+          const savedCart = localStorage.getItem(key);
+
+          if (savedCart) {
+            try {
+              const parsedCart = JSON.parse(savedCart);
+
+              if (Array.isArray(parsedCart)) {
+                return parsedCart;
+              }
+            } catch (error) {
+              console.error("Error reading cart:", error);
+            }
+          }
+        }
+
+        return [];
+      }
+
+      /*
+       * =====================================================
+       * SAVE CART
+       * =====================================================
+       */
+
+      function saveCart(cart) {
+        /*
+         * Main key used by this checkout.
+         */
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+
+      /*
+       * =====================================================
+       * GET PRODUCT PRICE
+       * =====================================================
+       */
+
+      function getProductPrice(product) {
+        return Number(
+          product.price || product.productPrice || product.unitPrice || 0,
+        );
+      }
+
+      /*
+       * =====================================================
+       * GET PRODUCT QUANTITY
+       * =====================================================
+       */
+
+      function getProductQuantity(product) {
+        return Number(product.quantity || product.qty || 1);
+      }
+
+      /*
+       * =====================================================
+       * FORMAT MONEY
+       * =====================================================
+       */
+
+      function formatPrice(price) {
+        return "$" + Number(price).toFixed(2);
+      }
+
+      /*
+       * =====================================================
+       * ESCAPE HTML
+       * =====================================================
+       */
+
+      function escapeHTML(value) {
+        const div = document.createElement("div");
+
+        div.textContent = value ?? "";
+
+        return div.innerHTML;
+      }
+
+      /*
+       * =====================================================
+       * DISPLAY CHECKOUT PRODUCTS
+       * =====================================================
+       */
+
+      function displayCheckoutProducts() {
+        const checkoutProducts = document.getElementById("checkoutProducts");
+
+        const cart = getCart();
+
+        checkoutProducts.innerHTML = "";
+
+        if (!cart || cart.length === 0) {
+          checkoutProducts.innerHTML = `
+        <div class="border border-gray-200 rounded-lg p-6 text-center">
+          <span class="material-icons text-gray-300 text-4xl mb-2">
+            shopping_cart
+          </span>
+
+          <p class="text-gray-500 text-sm">
+            Your cart is empty.
+          </p>
+
+          <a
+            href="index.html"
+            class="inline-block mt-4 bg-[#db4444] text-white px-6 py-3 rounded text-sm"
+          >
+            Continue Shopping
+          </a>
+        </div>
+      `;
+
+          updateTotals();
+
+          return;
+        }
+
+        cart.forEach((product, index) => {
+          const price = getProductPrice(product);
+
+          const quantity = getProductQuantity(product);
+
+          const subtotal = price * quantity;
+
+          const image =
+            product.thumbnail || product.image || product.images?.[0] || "";
+
+          const title = product.title || product.name || "Product";
+
+          checkoutProducts.innerHTML += `
+
+        <div
+          class="flex items-center justify-between gap-4"
+        >
+
+          <div class="flex items-center gap-4 min-w-0">
+
+            ${
+              image
+                ? `
+                  <img
+                    src="${escapeHTML(image)}"
+                    alt="${escapeHTML(title)}"
+                    class="w-14 h-14 object-contain bg-gray-100 rounded"
+                  />
+                `
+                : `
+                  <div
+                    class="w-14 h-14 bg-gray-100 rounded flex items-center justify-center"
+                  >
+                    <span class="material-icons text-gray-400">
+                      image
+                    </span>
+                  </div>
+                `
+            }
+
+            <div class="min-w-0">
+
+              <p
+                class="text-sm font-medium text-black truncate max-w-[180px]"
+              >
+                ${escapeHTML(title)}
+              </p>
+
+              <p class="text-xs text-gray-500 mt-1">
+                Qty: ${quantity}
+              </p>
+
+            </div>
+
+          </div>
+
+          <span
+            class="text-sm font-medium whitespace-nowrap"
+          >
+            ${formatPrice(subtotal)}
+          </span>
+
+        </div>
+
+      `;
+        });
+
+        updateTotals();
+      }
+
+      /*
+       * =====================================================
+       * CALCULATE SUBTOTAL
+       * =====================================================
+       */
+
+      function calculateSubtotal() {
+        const cart = getCart();
+
+        let subtotal = 0;
+
+        cart.forEach((product) => {
+          const price = getProductPrice(product);
+
+          const quantity = getProductQuantity(product);
+
+          subtotal += price * quantity;
+        });
+
+        return subtotal;
+      }
+
+      /*
+       * =====================================================
+       * UPDATE TOTALS
+       * =====================================================
+       */
+
+      let discountAmount = 0;
+
+      function updateTotals() {
+        const subtotal = calculateSubtotal();
+
+        const shipping = 0;
+
+        const total = Math.max(0, subtotal + shipping - discountAmount);
+
+        document.getElementById("checkoutSubtotal").textContent =
+          formatPrice(subtotal);
+
+        document.getElementById("checkoutTotal").textContent =
+          formatPrice(total);
+
+        document.getElementById("cartCount").textContent = getCartCount();
+      }
+
+      /*
+       * =====================================================
+       * CART COUNT
+       * =====================================================
+       */
+
+      function getCartCount() {
+        const cart = getCart();
+
+        return cart.reduce((total, product) => {
+          return total + getProductQuantity(product);
+        }, 0);
+      }
+
+      /*
+       * =====================================================
+       * COUPON SYSTEM
+       * =====================================================
+       *
+       * SAVE10 = 10% discount
+       */
+
+      document
+        .getElementById("couponButton")
+        .addEventListener("click", function () {
+          const couponInput = document.getElementById("couponInput");
+
+          const coupon = couponInput.value.trim().toUpperCase();
+
+          const subtotal = calculateSubtotal();
+
+          if (!coupon) {
+            alert("Please enter a coupon code.");
+
+            return;
+          }
+
+          if (coupon === "SAVE10") {
+            discountAmount = subtotal * 0.1;
+
+            updateTotals();
+
+            alert("Coupon applied! You received 10% off.");
+          } else {
+            discountAmount = 0;
+
+            updateTotals();
+
+            alert("Invalid coupon code.");
+          }
+        });
+
+      /*
+       * =====================================================
+       * PLACE ORDER
+       * =====================================================
+       */
+
+      document
+        .getElementById("placeOrderButton")
+        .addEventListener("click", function () {
+          const cart = getCart();
+
+          if (!cart.length) {
+            alert("Your cart is empty. Please add products first.");
+
+            return;
+          }
+
+          const form = document.getElementById("billingForm");
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+
+            return;
+          }
+
+          const paymentMethod = document.querySelector(
+            'input[name="payment_method"]:checked',
+          )?.value;
+
+          const finalTotal = Math.max(0, calculateSubtotal() - discountAmount);
+
+          alert(
+            "Your Order has been Placed!\n\n" +
+              "Payment: " +
+              (paymentMethod === "bank" ? "Bank" : "Cash on delivery") +
+              "\nTotal: " +
+              formatPrice(finalTotal),
+          );
+
+          /*
+           * Clear cart after successful order.
+           */
+
+          localStorage.removeItem("cart");
+          localStorage.removeItem("cartItems");
+          localStorage.removeItem("shoppingCart");
+          localStorage.removeItem("myCart");
+          localStorage.removeItem("exclusiveCart");
+
+          displayCheckoutProducts();
+        });
+
+      /*
+       * =====================================================
+       * LOAD CHECKOUT
+       * =====================================================
+       */
+
+      document.addEventListener("DOMContentLoaded", function () {
+        displayCheckoutProducts();
+      });
+    </script>
+  </body>
+</html>

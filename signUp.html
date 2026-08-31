@@ -1,0 +1,397 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Exclusive</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandRed: "#db4444",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body
+    class="bg-white text-black font-sans antialiased flex flex-col min-h-screen"
+  >
+    <!-- Top Promo Banner -->
+    <div
+      class="bg-black text-white text-xs sm:text-sm py-3 px-3 sm:px-4 text-center relative"
+    >
+      <p class="pr-0 sm:pr-20">
+        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        <a
+          href="#"
+          class="underline font-semibold ml-2 hover:text-gray-300 transition-colors"
+        >
+          ShopNow
+        </a>
+      </p>
+
+      <!-- Language Selector -->
+      <div
+        class="hidden sm:block absolute right-3 sm:right-6 lg:right-12 top-1/2 -translate-y-1/2"
+      >
+        <select
+          class="bg-black text-white border-none focus:outline-none cursor-pointer text-xs"
+        >
+          <option>English</option>
+          <option>Urdu</option>
+          <option>Siraiki</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Main Header Navigation -->
+    <header class="border-b border-gray-200 bg-white sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-20 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+      >
+        <!-- Top row on mobile/tablet -->
+        <div class="w-full lg:w-auto flex items-center justify-between">
+          <!-- Brand Logo -->
+          <a href="#" class="text-2xl sm:text-3xl font-bold tracking-wider">
+            Exclusive
+          </a>
+
+          <!-- Mobile Navigation -->
+          <nav
+            class="flex lg:hidden items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium"
+          >
+            <a href="index.html" class="hover:underline transition-all">
+              Home
+            </a>
+
+            <a
+              href="contact.html"
+              class="hidden sm:block hover:underline transition-all"
+            >
+              Contact
+            </a>
+
+            <a
+              href="about.html"
+              class="hidden sm:block hover:underline transition-all"
+            >
+              About
+            </a>
+
+            <a href="signUp.html" class="underline text-brandRed font-semibold">
+              Sign Up
+            </a>
+          </nav>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav
+          class="hidden lg:flex items-center space-x-8 xl:space-x-12 text-base font-medium"
+        >
+          <a href="index.html" class="hover:underline transition-all">
+            Home
+          </a>
+
+          <a href="contact.html" class="hover:underline transition-all">
+            Contact
+          </a>
+
+          <a href="about.html" class="hover:underline transition-all">
+            About
+          </a>
+
+          <a href="signUp.html" class="underline text-brandRed font-semibold">
+            Sign Up
+          </a>
+        </nav>
+
+        <!-- Search Field -->
+        <div class="w-full lg:w-auto flex items-center">
+          <div class="relative w-full sm:w-72 lg:w-60">
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              class="bg-[#f5f5f5] text-xs rounded px-4 py-3 pr-10 focus:outline-none w-full"
+            />
+
+            <svg
+              class="w-4 h-4 absolute right-3 top-3.5 text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Registration Container -->
+    <main class="flex-grow">
+      <div
+        class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-20"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+        >
+          <!-- Left Side Image -->
+          <div
+            class="lg:col-span-7 bg-[#a0bce0] rounded overflow-hidden h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full"
+          >
+            <img
+              src="https://exclusive-eight-livid.vercel.app/images/signup%20image.png"
+              alt="Exclusive Shopping Registration Illustration"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Right Side Form -->
+          <div class="lg:col-span-5 max-w-md w-full mx-auto lg:mx-0 space-y-8">
+            <!-- Form Heading -->
+            <div class="space-y-3">
+              <h1 class="text-3xl sm:text-4xl font-medium tracking-wide">
+                Create an account
+              </h1>
+
+              <p class="text-sm text-gray-600">Enter your details below</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form class="space-y-6" onsubmit="event.preventDefault()">
+              <!-- Name -->
+              <div
+                class="border-b border-gray-300 focus-within:border-brandRed transition-colors"
+              >
+                <label class="sr-only" for="fullName"> Name </label>
+
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Name"
+                  required
+                  class="w-full py-3 bg-transparent text-sm text-black placeholder-gray-400 border-none focus:outline-none focus:ring-0"
+                />
+              </div>
+
+              <!-- Email / Phone -->
+              <div
+                class="border-b border-gray-300 focus-within:border-brandRed transition-colors"
+              >
+                <label class="sr-only" for="emailOrPhone">
+                  Email or Phone Number
+                </label>
+
+                <input
+                  type="text"
+                  id="emailOrPhone"
+                  placeholder="Email or Phone Number"
+                  required
+                  class="w-full py-3 bg-transparent text-sm text-black placeholder-gray-400 border-none focus:outline-none focus:ring-0"
+                />
+              </div>
+
+              <!-- Password -->
+              <div
+                class="border-b border-gray-300 focus-within:border-brandRed transition-colors"
+              >
+                <label class="sr-only" for="password"> Password </label>
+
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                  class="w-full py-3 bg-transparent text-sm text-black placeholder-gray-400 border-none focus:outline-none focus:ring-0"
+                />
+              </div>
+
+              <!-- Buttons -->
+              <div class="space-y-4 pt-4">
+                <!-- Create Account -->
+                <button
+                  type="submit"
+                  class="w-full bg-[#db4444] hover:bg-[#c23b3b] text-white font-medium py-4 rounded text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#db4444]"
+                >
+                  Create Account
+                </button>
+
+                <!-- Google -->
+                <button
+                  type="button"
+                  class="w-full flex items-center justify-center space-x-3 border border-gray-300 hover:bg-gray-50 py-4 rounded text-sm text-black font-medium transition-colors"
+                >
+                  <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
+                    <path
+                      fill="#4285F4"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    />
+
+                    <path
+                      fill="#34A853"
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    />
+
+                    <path
+                      fill="#FBBC05"
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                    />
+
+                    <path
+                      fill="#EA4335"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                    />
+                  </svg>
+
+                  <span> Sign up with Google </span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Login Link -->
+            <div class="text-center sm:text-left text-sm text-gray-600">
+              <span> Already have Account? </span>
+
+              <a
+                href="#"
+                class="text-black font-medium underline underline-offset-4 hover:text-brandRed ml-2 sm:ml-4 transition-colors"
+              >
+                Log In
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 sm:pt-16 pb-6 text-sm mt-auto">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 border-b border-gray-800 pb-12"
+      >
+        <!-- Exclusive -->
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold tracking-wider">Exclusive</h2>
+
+          <h3 class="font-medium">Subscribe</h3>
+
+          <p class="text-gray-400 text-xs">Get 10% OFF on Your First Order</p>
+        </div>
+
+        <!-- Support -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Support</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>111 Bijoy sarani, Dhaka Dh 1515, Bangladesh.</li>
+
+            <li>
+              <a
+                href="mailto:exclusive@gmail.com"
+                class="hover:underline break-all"
+              >
+                exclusive@gmail.com
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+8801588888999" class="hover:underline">
+                +88015-88888-9999
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Account -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Account</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> My Account </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Login / Register </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Cart </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Wishlist </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Shop </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Quick Link</h3>
+
+          <ul class="space-y-2 text-gray-400 text-xs">
+            <li>
+              <a href="#" class="hover:underline"> Privacy Policy </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Terms of Use </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> FAQs </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:underline"> Contact </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Download App -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium tracking-wide">Download App</h3>
+
+          <p class="text-gray-400 text-xs">Save $3 with App New User Only</p>
+
+          <div class="w-24 h-24 bg-white p-2 rounded">
+            <div
+              class="w-full h-full bg-gray-200 flex items-center justify-center text-black text-[10px] font-bold text-center"
+            >
+              QR Code
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center text-xs text-gray-500 pt-6 px-4">
+        © Copyright Rimel 2025. All Rights Reserved.
+      </div>
+    </footer>
+  </body>
+</html>
